@@ -36,3 +36,167 @@
     transform: rotate(360deg);
   }
 }
+/* Add this to your CSS file (e.g., App.css or index.css) */
+.group {
+  position: relative;
+  display: inline-block;
+  font-weight: 600; /* Makes all text semi-bold */
+}
+
+.group:hover span:first-child {
+  color: #22c55e;
+}
+
+.group span:last-child {
+  transition: transform 0.3s ease-out;
+}
+
+.group:hover span:last-child {
+  transform: translateX(0);
+}
+
+/* Remove any default link styling */
+nav a {
+  text-decoration: none;
+  outline: none;
+}
+
+/* Ensure no borders or outlines on focus */
+nav a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 1280px) {
+  nav .flex.space-x-6 {
+    space-x: 4;
+  }
+  
+  nav a {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+/* Add to App.css */
+@keyframes searchBarOpen {
+  from {
+    width: 48px;
+    opacity: 0;
+  }
+  to {
+    width: 384px;
+    opacity: 1;
+  }
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Add smooth transition for search icon */
+.search-icon {
+  transition: opacity 0.3s ease;
+}
+
+.search-icon:hover {
+  opacity: 0.8;
+}
+
+/* Add pulse animation for search button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.search-button:hover {
+  animation: pulse 1.5s infinite;
+}
+/* Search Bar Styles */
+.search-toggle-btn {
+  @apply absolute left-0 p-2 rounded-full hover:bg-green-600 transition-all duration-300 z-10;
+}
+
+.search-input {
+  @apply w-full pl-12 pr-16 py-2 
+    bg-green-400 
+    text-white placeholder-green-100
+    rounded-full outline-none
+    transition-all duration-300
+    focus:bg-green-600
+    focus:shadow-lg;
+}
+
+.search-submit-btn {
+  @apply absolute right-2 top-1/2 transform -translate-y-1/2
+    p-2 rounded-full
+    bg-green-600 hover:bg-green-700
+    transition-all duration-300
+    focus:outline-none focus:ring-2 focus:ring-white;
+}
+
+.search-result-item {
+  @apply flex items-center gap-4 p-3 cursor-pointer
+    hover:bg-green-50 transition-colors duration-200
+    border-b border-gray-100 last:border-none;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+   to {
+    opacity: 1;
+  }
+}
+
+/* Custom scrollbar for search results */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #22c55e #e2e8f0;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: #22c55e;
+  border-radius: 3px;
+}
+
+/* Search input autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #16a34a inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
